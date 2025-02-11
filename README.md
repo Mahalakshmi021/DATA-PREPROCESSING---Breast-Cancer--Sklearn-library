@@ -9,17 +9,17 @@ from sklearn.preprocessing import StandardScaler
 ## Load the breast cancer dataset
 data = load_breast_cancer()
 
-# Split the data into features (X) and target (y)
+## Split the data into features (X) and target (y)
 X = data.data
 y = data.target
 
-# Split the data into training and testing sets
+## Split the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Create a StandardScaler object
+## Create a StandardScaler object
 scaler = StandardScaler()
 
-# Fit the scaler to the training data and transform both the training and testing data
+## Fit the scaler to the training data and transform both the training and testing data
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
@@ -34,10 +34,10 @@ Logistic Regression
 
 from sklearn.linear_model import LogisticRegression
 
-# Create a LogisticRegression object
+## Create a LogisticRegression object
 logreg = LogisticRegression(max_iter=1000)
 
-# Train the model on the scaled training data
+## Train the model on the scaled training data
 logreg.fit(X_train_scaled, y_train)
 
 
@@ -47,10 +47,10 @@ Decision Tree Classifier
 
 from sklearn.tree import DecisionTreeClassifier
 
-# Create a DecisionTreeClassifier object
+## Create a DecisionTreeClassifier object
 dt = DecisionTreeClassifier(random_state=42)
 
-# Train the model on the scaled training data
+## Train the model on the scaled training data
 dt.fit(X_train_scaled, y_train)
 
 
@@ -60,10 +60,10 @@ Random Forest Classifier
 
 from sklearn.ensemble import RandomForestClassifier
 
-# Create a RandomForestClassifier object
+## Create a RandomForestClassifier object
 rf = RandomForestClassifier(n_estimators=100, random_state=42)
 
-# Train the model on the scaled training data
+## Train the model on the scaled training data
 rf.fit(X_train_scaled, y_train)
 
 
@@ -73,10 +73,10 @@ Support Vector Machine (SVM)
 
 from sklearn.svm import SVC
 
-# Create an SVC object
+## Create an SVC object
 svm = SVC(random_state=42)
 
-# Train the model on the scaled training data
+## Train the model on the scaled training data
 svm.fit(X_train_scaled, y_train)
 
 
@@ -86,10 +86,10 @@ k-Nearest Neighbors (k-NN)
 
 from sklearn.neighbors import KNeighborsClassifier
 
-# Create a KNeighborsClassifier object
+## Create a KNeighborsClassifier object
 knn = KNeighborsClassifier(n_neighbors=5)
 
-# Train the model on the scaled training data
+## Train the model on the scaled training data
 knn.fit(X_train_scaled, y_train)
 
 
@@ -99,21 +99,21 @@ Model Comparison
 
 from sklearn.metrics import accuracy_score
 
-# Make predictions on the scaled testing data
+## Make predictions on the scaled testing data
 y_pred_logreg = logreg.predict(X_test_scaled)
 y_pred_dt = dt.predict(X_test_scaled)
 y_pred_rf = rf.predict(X_test_scaled)
 y_pred_svm = svm.predict(X_test_scaled)
 y_pred_knn = knn.predict(X_test_scaled)
 
-# Calculate the accuracy of each model
+## Calculate the accuracy of each model
 accuracy_logreg = accuracy_score(y_test, y_pred_logreg)
 accuracy_dt = accuracy_score(y_test, y_pred_dt)
 accuracy_rf = accuracy_score(y_test, y_pred_rf)
 accuracy_svm = accuracy_score(y_test, y_pred_svm)
 accuracy_knn = accuracy_score(y_test, y_pred_knn)
 
-# Print the accuracy of each model
+## Print the accuracy of each model
 print("Logistic Regression Accuracy:", accuracy_logreg)
 print("Decision Tree Accuracy:", accuracy_dt)
 print("Random Forest Accuracy:", accuracy_rf)
